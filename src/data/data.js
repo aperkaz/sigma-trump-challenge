@@ -1,4 +1,4 @@
-const tweets = [
+export const tweets = [
   {
     source: "Twitter for iPhone",
     text:
