@@ -32,10 +32,7 @@ class App extends Component {
            Most rt tweet (not own):
            <Tweet data={retweetWithMostLikes(tweets)}/>
         </div>
-          <div style={{margin: '30px' }}>
-              Day with most tweets:
-              {dayWithMostTweets(tweets)}/365
-          </div>
+
       </div>
     );
   }
