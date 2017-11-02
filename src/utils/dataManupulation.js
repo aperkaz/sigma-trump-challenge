@@ -69,24 +69,4 @@ export const dayWithMostTweets = (data) => {
     return tweetsOnDays.indexOf(Math.max(...tweetsOnDays));
 };
 
-export const dayWithMostTweets = (data) => {
-    let tweetsOnDays = new Array(365);
-    let tempDate;
-
-    tweetsOnDays = Array.apply(null, tweetsOnDays).map(Number.prototype.valueOf,0);
-
-    console.log(tweetsOnDays.toString());
-
-    for(var i = 0; i < data.length ; i++){
-        tempDate = new Date(data[i].created_at);
-        tweetsOnDays[tempDate.getDay()]++;
-    }
-
-    return tweetsOnDays.indexOf(Math.max(...tweetsOnDays));
-};
-
-//let tweetDate = new Date(tweet.created_at);
-
-
-
 
