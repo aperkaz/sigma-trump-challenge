@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-import { tweetsPerHour } from './utils/dataManupulation';
+import { tweetsPerHour} from './utils/dataManupulation';
 import { tweets } from '../src/data/data';
 
 import Graph from './components/Graph';
+import Total from './components/Total';
 import logo from './logo.svg';
 import './App.css';
+
 
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Graph data={tweetsPerHour(tweets)} />
+        <Total total={tweets.length} />
       </div>
     );
   }

@@ -20,7 +20,7 @@ export const tweetsPerHour = (data) => {
 
 // how many tweets total
 export const totalTweetCount = (data) => (
-  data.length;
+  data.length
 );
 
 
