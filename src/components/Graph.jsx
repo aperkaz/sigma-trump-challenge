@@ -10,7 +10,7 @@ class Graph extends React.Component {
                 type: 'column'
             },
             title: {
-                text: 'Tweet Bar Chart'
+                text: 'Trump\'s Tweets per hour'
             },
             xAxis: {
                 categories: [

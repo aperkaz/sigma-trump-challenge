@@ -20,16 +20,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Trump Tweet Challenge with React.js</h1>
         </header>
         <Graph data={tweetsPerHour(tweets)} />
         <Total total={tweets.length} />
         <div style={{margin: '30px' }}>
-            Most fav tweet (own):
+            Most fav tweet:
           <Tweet data={ownTweetWithMostLikes(tweets)}/>
         </div>
         <div style={{margin: '30px' }}>
-           Most rt tweet (not own):
+           Most RTed tweet (not own):
            <Tweet data={retweetWithMostLikes(tweets)}/>
         </div>
 

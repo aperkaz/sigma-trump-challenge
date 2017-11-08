@@ -8,4 +8,3 @@ Built on top of [create-react-app](https://github.com/facebookincubator/create-r
 
 ## License
 MIT © [Alain Perkaz](https://aperkaz.github.io)
-

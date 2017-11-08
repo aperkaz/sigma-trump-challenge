@@ -18,39 +18,22 @@ export const tweetsPerHour = (data) => {
 };
 
 // tweet with the most favorites (own tweet)
-export const ownTweetWithMostLikes = (data) => {
-    let tweet = {
-        favorite_count: 0,
-    };
+export const ownTweetWithMostLikes = (data) => (
+    data.reduce((accumulator, tweet) => (
+        (tweet.favorite_count > accumulator.favorite_count)? tweet : accumulator)
+    )
+);
 
-    for(var i = 0; i < data.length ; i++){
-        if(!data[i].is_retweet) {
-            if (data[i].favorite_count > tweet.favorite_count) {
-                tweet = data[i];
-            }
-        }
-    }
-
-    return tweet;
-};
-
-
-// tweet with the most favorites (retweet tweet)
-export const retweetWithMostLikes = (data) => {
-    let tweet = {
-        retweet_count: 0,
-    };
-
-    for(var i = 0; i < data.length ; i++){
-        if(data[i].is_retweet) {
-            if (data[i].retweet_count > tweet.retweet_count) {
-                tweet = data[i];
-            }
-        }
-    }
-
-    return tweet;
-};
+// tweet with the most favorites (retweeted tweet)
+export const retweetWithMostLikes = (data) => (
+    data.reduce((accumulator, tweet) => (
+        (tweet.is_retweet)
+            ? (tweet.retweet_count > accumulator.retweet_count)
+                ? tweet
+                : accumulator
+            : accumulator
+    ))
+);
 
 // day with most tweets (sort by day)
 export const dayWithMostTweets = (data) => {
