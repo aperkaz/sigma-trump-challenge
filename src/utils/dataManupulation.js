@@ -1,3 +1,7 @@
+// -- dependencies --
+import groupBy from 'lodash/groupBy';
+import moment from 'moment';
+
 // categorize tweets per [0-23]h range
 export const tweetsPerHour = (data) => {
     let tweetsInHour = new Array(24);
@@ -17,15 +21,13 @@ export const tweetsPerHour = (data) => {
     return tweetsInHour;
 };
 
-// tweet with the most favorites (own tweet)
-export const ownTweetWithMostLikes = (data) => (
+export const ownTweetWithMostFavs = (data) => (
     data.reduce((accumulator, tweet) => (
         (tweet.favorite_count > accumulator.favorite_count)? tweet : accumulator)
     )
 );
 
-// tweet with the most favorites (retweeted tweet)
-export const retweetWithMostLikes = (data) => (
+export const mostRetweetedTweet = (data) => (
     data.reduce((accumulator, tweet) => (
         (tweet.is_retweet)
             ? (tweet.retweet_count > accumulator.retweet_count)
@@ -34,22 +36,5 @@ export const retweetWithMostLikes = (data) => (
             : accumulator
     ))
 );
-
-// day with most tweets (sort by day)
-export const dayWithMostTweets = (data) => {
-    let tweetsOnDays = new Array(365);
-    let tempDate;
-
-    tweetsOnDays = Array.apply(null, tweetsOnDays).map(Number.prototype.valueOf,0);
-
-    console.log(tweetsOnDays.toString());
-
-    for(var i = 0; i < data.length ; i++){
-        tempDate = new Date(data[i].created_at);
-        tweetsOnDays[tempDate.getDay()]++;
-    }
-
-    return tweetsOnDays.indexOf(Math.max(...tweetsOnDays));
-};
 
 

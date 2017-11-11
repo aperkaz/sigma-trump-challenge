@@ -1,17 +1,16 @@
+// -- dependencies --
 import React, { Component } from 'react';
-
+// -- app --
 import {
-    ownTweetWithMostLikes,
-    retweetWithMostLikes,
+    ownTweetWithMostFavs,
+    mostRetweetedTweet,
     tweetsPerHour,
-    dayWithMostTweets
 } from './utils/dataManupulation';
 import { tweets } from '../src/data/data';
 
 import Graph from './components/Graph';
-import Total from './components/Total';
 import Tweet from './components/Tweet';
-import logo from './logo.svg';
+import logo from './trump.svg';
 import './App.css';
 
 class App extends Component {
@@ -23,16 +22,17 @@ class App extends Component {
           <h1 className="App-title">Trump Tweet Challenge with React.js</h1>
         </header>
         <Graph data={tweetsPerHour(tweets)} />
-        <Total total={tweets.length} />
-        <div style={{margin: '30px' }}>
+        <div>
+            Total tweets: {tweets.length}
+        </div>
+        <div style={{margin: '30px 100px' }}>
             Most fav tweet:
-          <Tweet data={ownTweetWithMostLikes(tweets)}/>
+          <Tweet data={ownTweetWithMostFavs(tweets)}/>
         </div>
-        <div style={{margin: '30px' }}>
+        <div style={{margin: '30px 100px' }}>
            Most RTed tweet (not own):
-           <Tweet data={retweetWithMostLikes(tweets)}/>
+           <Tweet data={mostRetweetedTweet(tweets)}/>
         </div>
-
       </div>
     );
   }
