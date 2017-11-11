@@ -9,14 +9,10 @@ export const tweetsPerHour = (data) => {
 
     tweetsInHour = Array.apply(null, tweetsInHour).map(Number.prototype.valueOf,0);
 
-    console.log(tweetsInHour.toString());
-
     for(var i = 0; i < data.length ; i++){
         tempDate = new Date(data[i].created_at);
         tweetsInHour[tempDate.getHours()]++;
     }
-
-    console.log(tweetsInHour.toString());
 
     return tweetsInHour;
 };
